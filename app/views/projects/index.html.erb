@@ -1,5 +1,6 @@
 <%= render 'shared/header', title: 'Projects' %>
-<br>
+<p><%= link_to 'New Project', new_project_path %></p>
+
 
 <table class="table">
   <thead>
@@ -19,5 +20,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Project', new_project_path %>

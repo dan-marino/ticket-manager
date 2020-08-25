@@ -1,0 +1,29 @@
+<%= form_with(model: @ticket, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :project_id %>
+    <%= f.collection_select :project_id, Project.all, :id, :title, {class: 'form-control'}%>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control'%>
+  </div>
+  <!-- TODO: fix tags and assignee -->
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= select_tag :status, options_for_select(["new", "fixed", "in_progress", "blocked"]), {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :assignee %>
+    <%= select_tag :assignee, options_for_select(['No one']), {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tags %>
+    <%= select_tag :tags, options_for_select(['tags']), {class: 'form-control', multiple: true } %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>

@@ -1,0 +1,25 @@
+<%= render 'shared/header', title: @ticket.title %>
+
+<!-- TODO: add tags -->
+<h3>Tags: </h3>
+
+<%= link_to 'Edit', edit_ticket_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Status</th>
+      <th scope="col">Creator</th>
+      <th scope="col">Assignee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @ticket.status %></td>
+      <td>user_name</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Comments: </h3>

@@ -1,5 +1,5 @@
 <%= render 'shared/header', title: 'New Project' %>
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', object: @project%>
 <br />
 <%= render 'form' %>
 <%= link_to "Back", projects_path %>

@@ -1,0 +1,4 @@
+<%= render 'shared/header', title: 'Tickets' %>
+<p><%= link_to 'New Ticket', new_ticket_path %></p>
+
+<%= render 'table', tickets: @tickets %>

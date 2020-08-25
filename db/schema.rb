@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_150903) do
+ActiveRecord::Schema.define(version: 2020_08_25_221703) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -21,11 +21,13 @@ ActiveRecord::Schema.define(version: 2020_08_25_150903) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "title"
-    t.text "description"
+    t.text "body"
     t.text "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id"
+    t.integer "assignee_id"
+    t.integer "tags_id"
   end
 
 end
