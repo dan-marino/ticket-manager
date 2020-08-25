@@ -1,0 +1,9 @@
+<%= render 'shared/header', title: @project.title %>
+
+<p><%= @project.description %></p>
+
+<p>
+  <%= link_to 'Edit', edit_project_path(@project) %>
+  |
+  <%= link_to 'Delete', @project, method: :delete, data: { confirm: "Are you sure?" } %>
+</p>

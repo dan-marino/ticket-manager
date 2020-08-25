@@ -1,0 +1,11 @@
+<% if @project.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Please fix the following errors</p>
+    <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% end %>

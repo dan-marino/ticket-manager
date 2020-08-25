@@ -1,1 +1,23 @@
-<div>Projects Index</div>
+<%= render 'shared/header', title: 'Projects' %>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Open Tickets</th>
+      <th scope="col">Total Tickets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.title, project_path(project) %> <br> <%= project.description %></td>
+        <td><%= project.total_open_tickets %></td>
+        <td><%= project.total_tickets %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Project', new_project_path %>

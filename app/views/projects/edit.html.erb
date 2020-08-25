@@ -1,0 +1,6 @@
+<%= render 'shared/header', title: "Editing #{@project.title}"  %>
+<%= render 'shared/errors' %>
+<%= render 'form' %>
+<p>
+  <%= link_to "Show", @project %> | <%= link_to "Back", projects_path %>
+</p>
