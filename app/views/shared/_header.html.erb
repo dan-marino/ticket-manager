@@ -1,10 +1,18 @@
-<header>
-  <strong>Ticketing</strong>
-  <%= link_to 'Projects', projects_path %>
-  |
-  <%= link_to 'Tickets', tickets_path %>
-  |
-  <%= link_to 'Tags', tags_path %>
+<header class="">
+  <div class="row">
+    <div class="col text-left">
+      <strong>Ticketing</strong>
+      <%= link_to 'Projects', projects_path %>
+      |
+      <%= link_to 'Tickets', tickets_path %>
+      |
+      <%= link_to 'Tags', tags_path %>
+    </div>
+    <!-- TODO: Change signup path -->
+    <div class="col text-right">
+      <%= link_to 'Login', '#' %> or <%= link_to 'Signup', signup_path %>
+    </div>
+  </div>
 </header>
 <br />
 <h3><%= title %></h3>

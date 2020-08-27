@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :tickets
   resources :tags
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 
 end

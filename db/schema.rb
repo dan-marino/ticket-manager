@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_194826) do
+ActiveRecord::Schema.define(version: 2020_08_27_210800) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 2020_08_27_194826) do
     t.integer "project_id"
     t.integer "assignee_id"
     t.integer "tags_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
   end
 
 end
