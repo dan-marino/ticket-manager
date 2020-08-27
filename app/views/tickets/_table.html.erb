@@ -16,10 +16,13 @@
         <td><%= ticket.status %></td>
         <td><%= render ticket.tags, last_tag: ticket.tags[-1]%>
         </td>
-        <td>
-          <%= link_to 'Edit', edit_ticket_path(ticket) %>
-           |
-          <%= link_to 'Delete', ticket, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <% if logged_in? %>
+          <td>
+            <%= link_to 'Edit', edit_ticket_path(ticket) %>
+             |
+            <%= link_to 'Delete', ticket, method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

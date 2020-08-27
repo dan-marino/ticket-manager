@@ -1,4 +1,6 @@
 <%= render 'shared/header', title: 'Tickets' %>
-<p><%= link_to 'New Ticket', new_ticket_path %></p>
+<% if logged_in? %>
+  <p><%= link_to 'New Ticket', new_ticket_path %></p>
+<% end %>
 
 <%= render 'table', tickets: @tickets %>

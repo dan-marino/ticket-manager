@@ -1,5 +1,7 @@
 <%= render 'shared/header', title: 'Projects' %>
-<p><%= link_to 'New Project', new_project_path %></p>
+<% if logged_in? %>
+  <p><%= link_to 'New Project', new_project_path %></p>
+<% end %>
 
 
 <table class="table">

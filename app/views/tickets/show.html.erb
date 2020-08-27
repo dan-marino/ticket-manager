@@ -3,7 +3,9 @@
 <!-- TODO: add tags -->
 <h3>Tags: </h3>
 
-<%= link_to 'Edit', edit_ticket_path %>
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_ticket_path %>
+<% end %>
 
 <table class="table">
   <thead>

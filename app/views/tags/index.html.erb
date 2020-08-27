@@ -1,5 +1,7 @@
 <%= render 'shared/header', title: 'Tags' %>
-<p><%= link_to 'New Tag', new_tag_path %></p>
+<% if logged_in? %>
+  <p><%= link_to 'New Tag', new_tag_path %></p>
+<% end %>
 
 <table class="table">
   <thead>
@@ -15,11 +17,13 @@
         <td><%= tag.title %></td>
         <!-- TODO: connect to tickets -->
         <td><%= tag.tickets.count %></td>
-        <td>
-          <%= link_to 'Edit', edit_tag_path(tag) %>
-           |
-          <%= link_to 'Delete', tag, method: :delete %>
-        </td>
+        <% if logged_in? %>
+          <td>
+            <%= link_to 'Edit', edit_tag_path(tag) %>
+             |
+            <%= link_to 'Delete', tag, method: :delete %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
