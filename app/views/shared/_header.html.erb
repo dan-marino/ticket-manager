@@ -8,10 +8,16 @@
       |
       <%= link_to 'Tags', tags_path %>
     </div>
-    <!-- TODO: Change signup path -->
-    <div class="col text-right">
-      <%= link_to 'Login', '#' %> or <%= link_to 'Signup', signup_path %>
-    </div>
+    <% if logged_in? %>
+      <div class="col text-right">
+        <%= "Signed in as #{current_user.name}" %>
+        <%= link_to 'Logout', logout_path, method: :delete %>
+      </div>
+    <% else %>
+      <div class="col text-right">
+        <%= link_to 'Login', login_path %> or <%= link_to 'Signup', signup_path %>
+      </div>
+    <% end %>
   </div>
 </header>
 <br />

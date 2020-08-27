@@ -1,0 +1,18 @@
+<%= render 'shared/header', title: "Login" %>
+
+<%= form_with scope: :session, local: true, url: login_path, class: 'form-group' do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <br>
+    <%= f.email_field :email, class: "form-control", placeholder: "Enter your password" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Sign In', class: "btn btn-primary" %>
+  </div>
+<% end %>
