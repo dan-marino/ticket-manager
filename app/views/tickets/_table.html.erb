@@ -9,12 +9,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @tickets.each do |ticket| %>
+    <% @tickets.each.with_index do |ticket, index| %>
       <tr>
         <td><%= link_to ticket.title, ticket %></td>
         <td>user_name</td>
         <td><%= ticket.status %></td>
-        <td>tags</td>
+        <td><%= render ticket.tags, last_tag: ticket.tags[-1]%>
+        </td>
         <td>
           <%= link_to 'Edit', edit_ticket_path(ticket) %>
            |
