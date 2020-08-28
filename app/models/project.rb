@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   validates :title, presence: :true
   validates :description, presence: :true
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
 
   def total_open_tickets
     self.tickets.select { |ticket|  ticket.status != 'fixed'}.count

@@ -15,7 +15,7 @@
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.title %></td>
-        <td><%= tag.tickets.count %></td>
+        <td><%= link_to tag.tickets.count, tickets_path(tag: tag.id) %></td>
         <% if logged_in? %>
           <td>
             <%= link_to 'Edit', edit_tag_path(tag) %>

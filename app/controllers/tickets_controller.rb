@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :require_user, except: [:index, :show]
 
   def index
-    @tickets = Ticket.all
+    @tickets = filter(Ticket.all)
     @project_names = Project.all.map{|project| project[:title]}
   end
 
@@ -53,5 +53,10 @@ class TicketsController < ApplicationController
 
   def get_ticket
     @ticket = Ticket.find(params[:id])
+  end
+
+  def filter(tickets)
+    param_tag = params[:tag].to_i
+    tickets.select { |ticket| ticket.tags.map { |tag| tag.id }.include?(param_tag) }
   end
 end
