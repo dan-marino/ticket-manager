@@ -8,11 +8,11 @@ class TicketsController < ApplicationController
   end
 
   def create # TODO: fix tags and assignee
-    form_inputs = ticket_params
-    form_inputs[:status] = params[:status]
-    # form_inputs[:tags] = params[:tags]
-    # form_inputs[:assignee] = params[:assignee]
-    @ticket = Ticket.new(form_inputs)
+    @ticket = Ticket.new(ticket_params)
+    @ticket.status = params[:status]
+    # @ticket.assignee_id = params[:assignee_id]
+    @ticket.user_id = current_user.id
+    byebug
     if @ticket.save
       flash[:notice] = "Ticket was successfully created."
       redirect_to @ticket
@@ -50,7 +50,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:title, :body, :project_id)
+    params.require(:ticket).permit(:title, :body, :project_id, :assignee_id, tag_ids: [])
   end
 
   def get_ticket

@@ -12,7 +12,8 @@
     <% @tickets.each.with_index do |ticket, index| %>
       <tr>
         <td><%= link_to ticket.title, ticket %></td>
-        <td>user_name</td>
+        <!-- TODO: associate Assignee and User -->
+        <td><%= ticket.assignee_id ? User.find(ticket.assignee_id).name : '-' %></td>
         <td><%= ticket.status %></td>
         <td><%= render ticket.tags, last_tag: ticket.tags[-1]%>
         </td>
