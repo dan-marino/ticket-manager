@@ -1,0 +1,10 @@
+<% if comment.id %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= comment.body %></h5>
+      <p class="card-text"><em>posted by <%= comment.creator.name %> <%= time_ago_in_words(comment.created_at) %> ago</em></p>
+      <%= link_to 'Edit', edit_ticket_comment_path(comment.ticket) %>
+    </div>
+  </div>
+  <br>
+<% end %>

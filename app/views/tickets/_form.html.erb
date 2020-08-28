@@ -14,7 +14,7 @@
   <!-- TODO: fix tags and assignee -->
   <div class="form-group">
     <%= f.label :status %>
-    <%= select_tag :status, options_for_select(["new", "fixed", "in_progress", "blocked"]), {class: 'form-control'} %>
+    <%= select_tag :status, options_for_select(Ticket::STATUSES), {class: 'form-control'} %>
   </div>
   <div class="form-group">
     <%= f.label :assignee %>

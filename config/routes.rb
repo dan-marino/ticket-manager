@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'projects#index'
 
   resources :projects
-  resources :tickets
+  resources :tickets do
+    resources :comments
+  end
   resources :tags
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'

@@ -1,0 +1,11 @@
+<%= render 'shared/header', title: 'New Project' %>
+<%= render 'shared/errors', object: @tag%>
+<br />
+
+<%= form_with(model: @tag, local: true) do |f| -%>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control'%>
+  </div>
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>

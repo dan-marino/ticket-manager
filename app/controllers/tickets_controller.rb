@@ -11,7 +11,6 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.status = params[:status]
     @ticket.user_id = current_user.id
-    byebug
     if @ticket.save
       flash[:notice] = "Ticket was successfully created."
       redirect_to @ticket
@@ -21,7 +20,6 @@ class TicketsController < ApplicationController
   end
 
   def new
-    # @statuses = ["new", "blocked", "in_progress", "fixed"]
     @ticket = Ticket.new()
   end
 
@@ -29,6 +27,7 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def update

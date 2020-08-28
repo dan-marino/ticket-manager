@@ -1,0 +1,18 @@
+<%= form_for [@ticket, comment] do |f| %>
+  <div class="form-group">
+    <%= f.label :body, "Add a comment" %>
+    <%= f.text_area :body, id: :comment_body, class: 'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :ticket_status, "Update ticket status" %>
+    <%= select_tag :ticket_status, options_for_select(Ticket::STATUSES),
+                   {prompt: 'Do not change', class: 'form-control'} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary'%>
+    or
+    <%= link_to "Cancel", ticket_path(@ticket) %>
+  </div>
+<% end %>

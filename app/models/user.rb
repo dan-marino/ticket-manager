@@ -10,5 +10,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }
   validates :password, confirmation: true
 
+  has_many :comments
+
   has_secure_password
 end
