@@ -15,7 +15,6 @@
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.title %></td>
-        <!-- TODO: connect to tickets -->
         <td><%= tag.tickets.count %></td>
         <% if logged_in? %>
           <td>

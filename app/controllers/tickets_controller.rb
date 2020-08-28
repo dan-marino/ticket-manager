@@ -7,10 +7,9 @@ class TicketsController < ApplicationController
     @project_names = Project.all.map{|project| project[:title]}
   end
 
-  def create # TODO: fix tags and assignee
+  def create # TODO: switch user_id to creator
     @ticket = Ticket.new(ticket_params)
     @ticket.status = params[:status]
-    # @ticket.assignee_id = params[:assignee_id]
     @ticket.user_id = current_user.id
     byebug
     if @ticket.save

@@ -18,8 +18,11 @@
   <tbody>
     <tr>
       <td><%= @ticket.status %></td>
-      <td>user_name</td>
-      <td>-</td>
+      <!-- TODO: associate Assignee and User -->
+      <td><%= User.find(@ticket.user_id).name%></td>
+      <!-- TODO: associate Assignee and User -->
+      <td><%= @ticket.assignee_id ? User.find(@ticket.assignee_id).name : '-' %></td>
+
     </tr>
   </tbody>
 </table>
