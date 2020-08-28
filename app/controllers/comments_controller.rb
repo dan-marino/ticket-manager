@@ -12,7 +12,9 @@ class CommentsController < ApplicationController
     @comment.creator = current_user
     @comment.ticket_id = params[:ticket_id]
     if @comment.save
-      @comment.ticket.status = params[:status] if params[:status] != ""
+      ticket = @comment.ticket
+      ticket.status = params[:ticket_status] if params[:ticket_status] != ""
+      ticket.save
       flash[:notice] = "Your comment was successfully created"
       redirect_to @comment.ticket
     else

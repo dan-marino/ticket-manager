@@ -1,4 +1,21 @@
 <%= render 'shared/header', title: "Comment"  %>
 <%= render 'shared/errors', object: @comment %>
 
-<%= render 'form', object: @comment.ticket %>
+<%= form_for [@comment.ticket, @comment] do |f| %>
+  <div class="form-group">
+    <%= f.label :body, "Edit comment" %>
+    <%= f.text_area :body, id: :comment_body, class: 'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :ticket_status, "Update ticket status" %>
+    <%= select_tag :ticket_status, options_for_select(Ticket::STATUSES),
+                   {prompt: 'Do not change', class: 'form-control'} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update Comment', class: 'btn btn-primary'-%>
+    or
+    <%= link_to "Cancel", @comment.ticket %>
+  </div>
+<% end %>
