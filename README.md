@@ -1,24 +1,3 @@
-# README
+# Ticket-Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I built this app to practice learning Rails. You can interact with it [here](https://dm-ticket-manager.herokuapp.com/)
