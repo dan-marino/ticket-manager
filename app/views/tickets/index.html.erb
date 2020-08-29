@@ -3,5 +3,6 @@
   <p><%= link_to 'New Ticket', new_ticket_path %></p>
 <% end %>
 
+<%= render 'filter' %>
 
 <%= render 'table', tickets: @tickets %>

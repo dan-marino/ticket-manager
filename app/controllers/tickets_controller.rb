@@ -56,7 +56,14 @@ class TicketsController < ApplicationController
   end
 
   def filter(tickets)
-    param_tag = params[:tag].to_i
-    tickets.select { |ticket| ticket.tags.map { |tag| tag.id }.include?(param_tag) }
+    tag_id = params[:tag]
+    project_id = params[:project]
+    status = params[:status]
+    return tickets if !tag_id && !project_id && !status
+    tickets.select do |ticket|
+      (tag_id.length == 0 || ticket.tags.map { |tag| tag.id.to_s }.include?(tag_id)) &&
+      (project_id.length == 0 || ticket.project_id.to_s == project_id) &&
+      (status.length == 0 || ticket.status == status)
+    end
   end
 end
