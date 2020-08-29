@@ -2,20 +2,20 @@
 <div class="form-group row">
   <label for="project">Show Tickets from
   </label>
-  <%= f.collection_select(:project, Project.all, :id, :title, {prompt: "All Projects"}, { class: "custom-select form"}) %>
+  <%= select_tag :project, options_from_collection_for_select(Project.all, :id, :title, params[:project]), include_blank: "All Projects"%>
 </div>
 <div class="form-group row">
   <label for="status">
     with status
   </label>
-  <%= select_tag :status, options_for_select(Ticket::STATUSES), {class: 'form-control', prompt: "Any Status"} %>
+  <%= select_tag :status, options_for_select(Ticket::STATUSES.map{|t| [t.titleize, t]}, params[:status]), include_blank: "Any Status" %>
 
 </div>
 <div class="form-group row">
   <label for="tag">
     tagged
   </label>
-  <%= f.collection_select(:tag, Tag.all, :id, :title, {prompt: "-"}, { class: "custom-select form"}) %>
+  <%= select_tag :tag, options_from_collection_for_select(Tag.all, :id, :title, params[:tag]), include_blank: "-" %>  
 </div>
 <%= button_tag 'Update', name: nil, class: "btn btn-primary"%>
 |
